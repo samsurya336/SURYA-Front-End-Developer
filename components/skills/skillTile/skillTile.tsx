@@ -34,6 +34,7 @@ export default function SkillTile(props: Props): ReactElement {
     function toggleCard(){
         openCardRef.current = !openCardRef.current;
 
+        let skillTileElmt:HTMLDivElement = (skillsTileRef.current as HTMLDivElement);
         let skillInfoCardElmt:HTMLDivElement = (skillsTileRef.current?.children[0] as HTMLDivElement);
         let skillTitleElmt:HTMLDivElement = (skillsTileRef.current?.children[1] as HTMLDivElement);
 
@@ -46,10 +47,14 @@ export default function SkillTile(props: Props): ReactElement {
         if(openCardRef.current){
 
             skillsTileRef.current?.style.setProperty('--height',skillInfoCardElmt.offsetHeight+'px');
-            skillTitleElmt.style.padding = "8px";
+            // skillTitleElmt.style.padding = "8px";
+            // skillTitleElmt.style.border = "none";
+            skillTitleElmt.style.borderBottom = "1px solid #707070";
         }else{
             skillsTileRef.current?.style.setProperty('--height','80px')
-            skillTitleElmt.style.padding = "0";
+            // skillTitleElmt.style.padding = "0";
+            // skillTitleElmt.style.border = "1px solid #707070";
+            // skillTitleElmt.style.borderBottom = "0";
         }
     }
 
