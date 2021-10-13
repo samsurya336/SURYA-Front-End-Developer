@@ -1,0 +1,97 @@
+.header_top_comp_wrapper{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.header_top_comp_wrapper > div{
+    flex-basis: 40%;
+    border-radius: calc(var(--padding-s) - 0.5rem);
+}
+.header_top_comp_wrapper > div img{
+    object-fit: cover;
+}
+
+.name_section_wrapper{
+    flex-basis: 60%;
+    width: 100%;
+    overflow: hidden;
+    padding: 0 calc(var(--padding-s));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    
+}
+
+
+
+ /* welcome Text  */
+.name_section_wrapper > p:first-child {
+    font-size: var(--fs-700);
+    transform: translateX(0);
+    opacity: 1;
+    animation: intro_name_text_anime 3s forwards;
+}
+
+ /* Name Text  */
+.name_section_wrapper > p:last-child {
+    font-size: var(--fs-800);
+    background: var(--green-gradiant);
+    background-size: 500px 100%;
+    background-clip: text;
+    color: transparent;
+    opacity: 0;
+    animation: intro_name_text_anime 3s 0.5s forwards;
+    
+}
+
+@keyframes intro_name_text_anime {
+    0% {
+      opacity: 0;
+      transform: translateX(100vw);
+    }
+    100% {
+        opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+
+.role_section_wrapper {
+    color: var(--grey-100);
+    font-size: var(--fs-600);
+    margin-top: calc(var(--padding-s) - 0.5rem);
+    margin-bottom: calc(var(--padding-s) + 0.5rem);
+    transform: translateX(0);
+    opacity: 1;
+    animation: intro_role_text_anime 3s forwards;
+}
+
+@keyframes intro_role_text_anime {
+    0% {
+      opacity: 0;
+      transform: translateX(-100vw);
+    }
+    100% {
+        opacity: 1;
+      transform: translateX(0);
+    }
+}
+
+.role_section_wrapper P:nth-child(1)::before {
+    content: 'a';
+    color: var(--grey-500)
+}
+
+.role_section_wrapper P:nth-child(2)::before {
+    content: '&';
+    color: var(--grey-500)
+}
+
+.role_section_wrapper P:nth-child(2)::after {
+    content: 'enthusiast';
+    color: var(--grey-500)
+}
+
+

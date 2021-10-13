@@ -1,0 +1,71 @@
+.skill_tile_wrapper{
+    --height: 80px;
+    width: 100%;
+    height: var(--height);
+    position: relative;
+    background-color: var(--black-700);
+    margin-bottom: 20px;    /* border: 1px solid var(--grey-100); */
+    border-radius: var(--padding-s);
+    overflow: hidden;
+    transition: height 1s ease-in-out;
+}
+
+.skill_tile_info_card{
+    width: 100%;
+    position: absolute;
+    padding: var(--padding-s);
+    padding-top: 80px;
+}
+
+.skill_tile_header_wrapper{
+    width: 100%;
+    height: 80px;
+    position: absolute;
+    background-color: antiquewhite;
+    top:0;
+    padding: 0;
+    opacity: 0;
+    transform: translateY(80px);
+    transition: padding 0.5s ease-in-out, 
+    transform 1s ease-in-out,
+    opacity 2s ease-in-out,
+    background-color 2s ease-in-out
+    ;
+    border: 1px solid var(--grey-100);
+    border-radius: var(--padding-s);
+
+}
+
+.skill_tile_header {
+    width: 100%;
+    height: 100%;
+    /* background-color: var(--grey-100); */
+    border-radius: var(--padding-s);
+    /* color: var(--black-700); */
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+
+.skill_tile_header::before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: var(--grey-500);
+    /* border-radius: var(--padding-s); */
+    color: var(--black-700);
+    position: absolute;
+    transition: transform 1s ease-in-out;
+    /* transform: translateX(-110%); */
+    z-index: -1;
+    /* top: 0;
+    left: -20%; */
+}
+
+.skill_tile_wrapper:hover {
+    background-color: green;
+    /* background: "red"; */
+    /* transform: translateX(0); */
+}
