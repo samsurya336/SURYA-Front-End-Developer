@@ -23,7 +23,7 @@ export default function Skills({title}:{title:string}): JSX.Element {
         <section ref={skillsRef} >
             <p className={styles.skills_heading}>{title}</p>
             <SkillTile title={'React Js'} />
-            <SkillTile title={'Next Js'} />
+            <SkillTile title={'Next Js'} runningText={'Yes this project is built with NEXT JS'}/>
             <SkillTile title={'Flutter Js'} />
             <SkillTile title={'Dart Js'} />
         </section>

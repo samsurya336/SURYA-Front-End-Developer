@@ -19,14 +19,13 @@ const Home: NextPage = () => {
       </Head>
 
       <ScrollProgress />
-      <Header />
+      {/* <Header /> */}
       <AboutMe />
 
-      <div style={{height:'300px',width:'150px',backgroundColor:'green'}} />
       <Skills title={'Front End Skills'} />
-      <div style={{height:'300px',width:'150px',backgroundColor:'green'}} />
-      <div style={{height:'300px',width:'150px',backgroundColor:'green'}} />
-      <div style={{height:'300px',width:'150px',backgroundColor:'green'}} />
+      <div style={{height:'300px',width:'150px'}} />
+      <div style={{height:'300px',width:'150px'}} />
+      <div style={{height:'300px',width:'150px'}} />
 
     </div>
   )

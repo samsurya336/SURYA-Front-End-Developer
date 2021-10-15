@@ -1,5 +1,8 @@
-.skills_heading{
-    background-color: brown;
-    transform: scale(0);
-    transition: transform 2s ease-in-out;
+.skills_heading {
+  font-size: var(--fs-500);
+  color: var(--grey-100);
+  transform: scale(0);
+  transition: transform 2s ease-in-out;
+  margin: var(--padding-s) 0;
+  width: fit-content;
 }
