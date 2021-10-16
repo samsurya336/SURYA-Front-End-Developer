@@ -4,5 +4,6 @@
   transform: scale(0);
   transition: transform 2s ease-in-out;
   margin: var(--padding-s) 0;
+  margin-top: calc(var(--padding-s) * 2);
   width: fit-content;
 }

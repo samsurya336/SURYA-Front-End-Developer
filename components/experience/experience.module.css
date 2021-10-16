@@ -1,0 +1,52 @@
+.experience_heading {
+  font-size: var(--fs-500);
+  color: var(--grey-100);
+  margin: calc(var(--padding-s) / 2.5) 0;
+  margin-top: calc(var(--padding-s) * 2);
+  width: fit-content;
+}
+
+.updating_progress_wrapper {
+  width: 100%;
+  height: 4px;
+  background: rgb(112, 112, 112);
+  background: linear-gradient(
+    90deg,
+    rgba(112, 112, 112, 0.9456396210059691) 0%,
+    rgba(125, 125, 125, 1) 16%,
+    rgba(207, 207, 207, 1) 50%,
+    rgba(125, 125, 125, 1) 81%,
+    rgba(112, 112, 112, 0.9540665872981039) 100%
+  );
+  background-size: 200% 100%;
+  animation: progress_anime 5s linear infinite forwards;
+  margin: calc(var(--padding-s) / 2.5) 0;
+  border-radius: 2px;
+}
+
+@-webkit-keyframes progress_anime {
+  0% {
+    background-position: -100% 0;
+  }
+  100% {
+    background-position: 100% 0;
+  }
+}
+
+@keyframes progress_anime {
+  0% {
+    background-position: -1200px 0;
+  }
+  100% {
+    background-position: 1200px 0;
+  }
+}
+
+.progress_bottom_text {
+  font-size: var(--fs-200);
+  margin-bottom: var(--padding-s);
+}
+
+.progress_bottom_text > span {
+  color: var(--grey-100);
+}

@@ -1,0 +1,43 @@
+.date_anime_wrapper {
+  width: 50px;
+  height: 50px;
+  background-color: burlywood;
+  /* overflow: hidden; */
+}
+
+.date_anime_current_number {
+  width: 100%;
+  height: 100%;
+  background-color: indianred;
+}
+
+.date_anime_next_number {
+  width: 100%;
+  height: 100%;
+  background-color: cadetblue;
+  animation: text_anime_one;
+  animation-duration: 0.8s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-delay: 1s;
+  animation-fill-mode: none;
+  /* animation-fill-mode: forwards; */
+}
+
+@keyframes text_anime_one {
+  0% {
+    transform: translateY(-200%);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}
+
+@keyframes text_anime_two {
+  0% {
+    transform: translateY(-200%);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}
