@@ -9,6 +9,8 @@ import SkillTile from '../components/skills/skillTile/skillTile'
 import Experiecne from '../components/experience/experiecne'
 import styles from '../styles/Home.module.css'
 
+
+// Design 1
 // 🧑🏻‍💻
 const Home: NextPage = () => {
   return (
