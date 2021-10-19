@@ -1,10 +1,11 @@
 .about_me_section_wrapper {
-    border: 1px solid var(--grey-100);
+    border: 1px solid var(--grey-lite-200);
     padding: var(--padding-s);
     background-color: var(--black-700);
     border-radius: var(--padding-s);
     animation: about_me_anime 3s forwards;
     background-color: var(--black-700);
+    margin-bottom: var(--bottom-gap);
 }
 
 @keyframes about_me_anime {

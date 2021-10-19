@@ -1,10 +1,13 @@
 import React, { useRef, ReactElement, RefObject, MutableRefObject } from 'react'
 import useDetectVisiblity from '../../../hooks/useDetectVisiblity'
+import Image from 'next/image'
+import flutterLogo from '../../../public/assets/skills/Flutter_logo.png'
 import styles from './skillTile.module.css'
 
 interface Props {
     title: string,
     runningText?: string,
+    tag?:string,
 }
 
 export default function SkillTile(props: Props): ReactElement {
@@ -21,10 +24,11 @@ export default function SkillTile(props: Props): ReactElement {
         if(isVisible.isIntersecting){
             skillTitleElmt.style.transform = "translateY(0)"
             skillTitleElmt.style.opacity = "1"
-        }else{
-            skillTitleElmt.style.transform = "translateY(80px)"
-            skillTitleElmt.style.opacity = "0"
         }
+        // else{
+        //     skillTitleElmt.style.transform = "translateY(80px)"
+        //     skillTitleElmt.style.opacity = "0"
+        // }
 
     }
 
@@ -82,7 +86,7 @@ export default function SkillTile(props: Props): ReactElement {
 
         // function SkillTitleComp() > Title Text Component  
         // Dim and Scale Down The Title Text
-        (skillTitleTextCompElmt.children[0] as HTMLHeadingElement).style.color = '#ADADAD';
+        (skillTitleTextCompElmt.children[0] as HTMLHeadingElement).style.color = '#7e7e7e';
         (skillTitleTextCompElmt.children[0] as HTMLHeadingElement).style.transform = 'scale(1)';
         (skillTitleTextCompElmt.children[0] as HTMLHeadingElement).style.textShadow = 'none';
 
@@ -99,7 +103,7 @@ export default function SkillTile(props: Props): ReactElement {
 
             <SkillInfoCard />
 
-            <SkillTitleComp title={props.title} runningText={props.runningText} isCardOpened={openCardRef.current} />
+            <SkillTitleComp title={props.title} runningText={props.runningText} isCardOpened={openCardRef.current} tag={props.tag} />
 
         </div>
     )
@@ -114,7 +118,7 @@ function SkillInfoCard(){
     );
 }
 
-function SkillTitleComp(props:{title:string,runningText?:string,isCardOpened:boolean}){
+function SkillTitleComp(props:{title:string,runningText?:string,isCardOpened:boolean,tag?:string}){
     return(
         <div className={styles.skill_tile_header_wrapper}>
             <div className={styles.skill_tile_header}>
@@ -127,7 +131,7 @@ function SkillTitleComp(props:{title:string,runningText?:string,isCardOpened:boo
     function LogoComp(){
         return(
             <div className={styles.logo_wrapper}>
-
+                <Image src={flutterLogo} />
             </div>
         )
     }
@@ -141,6 +145,10 @@ function SkillTitleComp(props:{title:string,runningText?:string,isCardOpened:boo
                     <span />
                     <span />
                 </div>
+                {
+                    props.tag && 
+                    <div className={styles.skill_tag}>{props.tag}</div>
+                }
             </div>
         )
     }

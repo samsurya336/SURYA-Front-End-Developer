@@ -1,3 +1,14 @@
+.date_comp_wrapper{
+  color: var(--grey-100);
+  font-size: var(--fs-400);
+}
+
+.date_comp_wrapper p{
+  display: inline-block;
+  color: var(--grey-500);
+  font-size: var(--fs-200);
+}
+
 .date_anime_wrapper {
   width: 50px;
   height: 50px;

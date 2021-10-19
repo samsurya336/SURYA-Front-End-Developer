@@ -9,7 +9,9 @@ function useDetectVisiblity(elementRef: RefObject<Element>, rootMargin: string):
 
 
   const updateEntry = ([entry]: IntersectionObserverEntry[]): void => {
-    setEntry(entry)
+    if(entry.isIntersecting){
+      setEntry(entry)
+    }
   }
 
   useEffect(() => {

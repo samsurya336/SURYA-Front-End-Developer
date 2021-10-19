@@ -10,6 +10,30 @@ export default function Experiecne(): ReactElement {
             <div className={styles.updating_progress_wrapper} />
             <p className={styles.progress_bottom_text}>auto upgrading my-self and <span>skills</span> eveyday</p>
             <DateComp />
+            <FreelancerCard />
+            <CompanyTile companyName={'Folio Hawks'} years={'2020 - present'} role={'Front End Developer'} type={'Freelancer'} />
+            <CompanyTile companyName={'Preciso Concepts'} years={'2021 - present'} role={'Front End Developer'} type={'Full Time'} />
         </section>
     )
+}
+
+function FreelancerCard(){
+    return(
+        <div className={styles.freelancer_card_wrapper}>
+            <h5>Freelancer</h5>
+            <p>
+                An active freelancer working on Flutter for building apps for IOS and Android and React js for Websites
+            </p>
+        </div>
+    )
+}
+
+function CompanyTile(props:{companyName:string,years:string,role:string,type:string}){
+    return(
+        <section className={styles.company_tile_wrapper}>
+            <h5>{props.companyName}</h5><span> {props.years}</span>
+            <p>{props.role}</p>
+            <p>{props.type}</p>
+        </section>
+    );
 }

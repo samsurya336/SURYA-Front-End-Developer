@@ -1,7 +1,9 @@
 :root {
   --black-700: #181818;
   --grey-500: #707070;
+  --grey-300: #7e7e7e;
   --grey-100: #adadad;
+  --grey-lite-200: #525252;
   --grey-lite-100: #373737;
   --green-500: #24b47e;
 
@@ -30,7 +32,7 @@
 
   --padding-s: 1rem;
 
-  --bottom-gap: 2.5rem;
+  --bottom-gap: 5rem;
 }
 
 @font-face {
@@ -52,6 +54,16 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'jetBrains';
+  src: url('/public/fonts/JetBrains/JetBrainsMono-VariableFont_wght.ttf')
+      format('truetype'),
+    url('/public/fonts/JetBrains/OFL.txt') format('otf');
+
+  font-weight: normal;
+  font-style: normal;
+}
+
 html,
 body {
   height: 100%;
@@ -63,6 +75,7 @@ body {
   scroll-behavior: smooth;
   background-color: var(--black-700);
   color: var(--grey-500);
+  /* font-family: 'jetBrains'; */
 }
 
 a {

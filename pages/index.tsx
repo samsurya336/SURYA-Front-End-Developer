@@ -5,6 +5,7 @@ import ScrollProgress from '../components/scrollProgress/scrollProgress'
 import Header from '../components/header/header'
 import AboutMe from '../components/aboutMe/aboutMe'
 import Skills from '../components/skills/skills'
+import SkillTile from '../components/skills/skillTile/skillTile'
 import Experiecne from '../components/experience/experiecne'
 import styles from '../styles/Home.module.css'
 
@@ -20,16 +21,46 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Experiecne />
 
-      {/* <ScrollProgress />
+      <ScrollProgress />
       <Header />
       <AboutMe />
 
-      <Skills title={'Front End Skills'} />
+      <Skills title={'Front End Skills'}>
+          <SkillTile title={'React Js'} tag={'CURRENT'} />
+          <SkillTile title={'Next Js'} runningText={'Yes this project is built with NEXT JS'}/>
+          <SkillTile title={'HTML'} />
+          <SkillTile title={'CSS'} />
+          <SkillTile title={'Flutter'} />
+          <SkillTile title={'Three Js'} tag={'BETA'} />
+      </Skills>
+
+      <Skills title={'Backend End Skills'}>
+          <SkillTile title={'Postgres SQL'} />
+          <SkillTile title={'Mongo DB'} />
+          <SkillTile title={'Node JS'} />
+          <SkillTile title={'Express'} />
+          <SkillTile title={'Firebase'} />
+          <SkillTile title={'Supabase'} />
+      </Skills>
+
+      <Skills title={'Programing Languages'}>
+          <SkillTile title={'Java Script'} />
+          <SkillTile title={'Type Script'} runningText={'Yes this project is built with Type Script'}/>
+          <SkillTile title={'Dart'} />
+          <SkillTile title={'Java'} />
+      </Skills>
+
+      <Skills title={'Tools I Use'}>
+          <SkillTile title={'VS Code'} />
+          <SkillTile title={'Figma'} />
+          <SkillTile title={'Adobe XD'} />
+      </Skills>
+
+      <Experiecne />
       <div style={{height:'300px',width:'150px'}} />
       <div style={{height:'300px',width:'150px'}} />
-      <div style={{height:'300px',width:'150px'}} /> */}
+      <div style={{height:'300px',width:'150px'}} />
 
     </div>
   )

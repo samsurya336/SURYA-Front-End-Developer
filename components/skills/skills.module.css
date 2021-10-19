@@ -7,3 +7,7 @@
   margin-top: calc(var(--padding-s) * 2);
   width: fit-content;
 }
+
+.skill_section_wrapper{
+  margin-bottom: var(--bottom-gap);
+}

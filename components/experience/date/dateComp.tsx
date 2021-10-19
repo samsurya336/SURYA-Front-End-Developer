@@ -10,8 +10,6 @@ export default function DateComp(): ReactElement {
     //Thu Dec 30 2021 12:45:17 GMT+0530 (India Standard Time)
     // M-09 | D-01 | 2019
 
-    const [val, setVal] = useState<string>('')
-
     const currentdatetime = new Date();
 
     const startedCodingDate = new Date("09/01/2019");
@@ -28,7 +26,6 @@ export default function DateComp(): ReactElement {
 
     const calculateDays = ():string => {
         
-        // const currentDate = new Date();
         const currentYear = currentdatetime?.getFullYear();
         const currentYearStarting = new Date(`01/01/${currentYear}`)
 
@@ -62,11 +59,13 @@ export default function DateComp(): ReactElement {
     return(
 
         <>
-            <div>
-                <p>{`${calculateYear()} Year - ${calculateDays()} Days - ${calculateHours()} Hour `}</p>
+            <div className={styles.date_comp_wrapper}>
+                <span>{calculateYear()}</span><p>Year &nbsp;</p>
+                <span>{calculateDays()}</span><p>Days &nbsp;</p>
+                <span>{calculateHours()}</span><p>Hrs &nbsp;</p>
+                <span>12</span><p>Sec</p>
+                {/* <p>{`${calculateYear()} Year - ${calculateDays()} Days - ${calculateHours()} Hour `}</p> */}
             </div>
-
-            
 
         </>
 
