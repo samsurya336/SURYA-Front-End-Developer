@@ -41,9 +41,9 @@ export const toggleSkillInfo = (isOpen:boolean,title:string='') => {
                 (skillPopUpRefGlob.current?.children[1].children[0] as HTMLDivElement).style.textShadow = '0 0 5px #adadad, 0 0 10px #adadad, 0 0 15px #adadad,0 0 20px #adadad, 0 0 25px #adadad, 0 0 30px #adadad, 0 0 35px #adadad';
                 
                 (currentSkillRef.current as HTMLDivElement).style.opacity = '0';
-                cardStyle.transition = 'all 0.7s';
+                cardStyle.transition = 'all 0.2s';
                 cardStyle.width = `90%`;
-                cardStyle.height = `300px`;
+                cardStyle.height = `350px`;
                 cardStyle.top = '50%';
                 cardStyle.left = '50%';
                 cardStyle.transform = 'translate(-50%, -50%)';
@@ -87,10 +87,10 @@ export const toggleSkillInfo = (isOpen:boolean,title:string='') => {
             (skillPopUpRefGlob.current?.children[1].children[0] as HTMLDivElement).style.textShadow = 'none';
 
             setTimeout(() => {
-                (currentSkillRef.current as HTMLDivElement).style.opacity = '1';
                 (skillPopUpRefGlob.current as HTMLDivElement ).style.display = "none";
                 cardStyle.transition = 'none';
-            }, 800);
+                (currentSkillRef.current as HTMLDivElement).style.opacity = '1';
+            }, 320);
 
         }
 }
@@ -118,6 +118,9 @@ export default function SkillInfoPopUp(): ReactElement {
                 <h6>
                     React JS
                 </h6>
+                <p>
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+                </p>
             </div>
         </div>
     )
