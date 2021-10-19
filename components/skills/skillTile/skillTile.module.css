@@ -1,14 +1,36 @@
 .skill_tile_wrapper {
-  --height: 80px;
+  --height: 40px;
   width: 100%;
-  height: var(--height);
+  flex-basis: 47%;
+  /* height: var(--height); */
+  padding: 0.3em 0;
   position: relative;
   background-color: var(--black-700);
   margin-bottom: 20px;
-  border-radius: var(--padding-s);
-  overflow: hidden;
-  transition: height 0.3s ease-in-out;
+  border-radius: 0.5em;
+  border: 1px solid var(--grey-lite-200);
+  /* overflow: hidden; */
+  transition: opacity 0.3s ease-in-out;
+  position: relative;
+  text-align: center;
+  font-size: var(--fs-400);
 }
+/* 
+.skill_tile_wrapper::after {
+  position: absolute;
+  display: none;
+  content: '';
+  height: 100px;
+  width: 100px;
+  margin: 10px;
+  background-color: blue;
+  z-index: 2;
+  transform: translate(0, 30%);
+}
+
+.skill_tile_wrapper:hover::after {
+  display: block;
+} */
 
 .skill_tile_info_card {
   width: 100%;
@@ -27,18 +49,18 @@
 
 .skill_tile_header_wrapper {
   width: 100%;
-  height: 80px;
+  height: 40px;
   position: absolute;
   /* background-color: antiquewhite; */
   top: 0;
   padding: 0;
-  opacity: 0;
-  transform: translateY(80px);
-  transition: transform 0.3s ease-in-out,opacity 0.4s ease-in-out,
+  /* opacity: 0; */
+  /* transform: translateY(80px); */
+  transition: transform 0.3s ease-in-out, opacity 0.4s ease-in-out,
     border-radius 0.3s linear;
   border: 1px solid var(--grey-lite-200);
   /* border: 1px solid var(--grey-100); */
-  border-radius: var(--padding-s);
+  border-radius: 0.5em;
 }
 
 .skill_tile_header {
@@ -144,8 +166,7 @@
   }
 }
 
-
-.skill_tag{
+.skill_tag {
   position: absolute;
   top: 4px;
   right: 10px;
@@ -154,12 +175,18 @@
   padding: 0.3em 0.7em;
   border-radius: 0.2rem;
   font-size: 0.5rem;
-  background: rgb(36,180,126);
-  background: linear-gradient(131deg, rgba(36,180,126,1) 0%, rgba(36,180,126,1) 29%, rgba(133,236,198,1) 50%, rgba(36,180,126,1) 65%, rgba(36,180,126,1) 100%);
+  background: rgb(36, 180, 126);
+  background: linear-gradient(
+    131deg,
+    rgba(36, 180, 126, 1) 0%,
+    rgba(36, 180, 126, 1) 29%,
+    rgba(133, 236, 198, 1) 50%,
+    rgba(36, 180, 126, 1) 65%,
+    rgba(36, 180, 126, 1) 100%
+  );
   background-size: 300% 100%;
   animation: skill_tag_shine_anime 20s linear infinite forwards;
 }
-
 
 @-webkit-keyframes skill_tag_shine_anime {
   0% {
@@ -178,7 +205,6 @@
     background-position: 1200px 0;
   }
 }
-
 
 /* 
 .icon {
