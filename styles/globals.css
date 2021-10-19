@@ -32,7 +32,7 @@
 
   --padding-s: 1rem;
 
-  --bottom-gap: 5rem;
+  --bottom-gap: 2rem;
 }
 
 @font-face {
@@ -75,7 +75,14 @@ body {
   scroll-behavior: smooth;
   background-color: var(--black-700);
   color: var(--grey-500);
+  /* overflow-x: hidden;
+  overflow: hidden; */
   /* font-family: 'jetBrains'; */
+}
+
+::-webkit-scrollbar {
+  width: 0; /* Remove scrollbar space */
+  background: transparent; /* Optional: just make scrollbar invisible */
 }
 
 a {

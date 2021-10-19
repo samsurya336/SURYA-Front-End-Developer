@@ -1,13 +1,24 @@
+.skill_section_wrapper {
+  margin-bottom: var(--bottom-gap);
+  position: relative;
+}
+
+.skill_section_wrapper:hover .skill_info_wrapper {
+  transform: scale(1);
+}
+
 .skills_heading {
   font-size: var(--fs-500);
   color: var(--grey-100);
-  transform: scale(0);
+  /* transform: scale(0); */
   transition: transform 2s ease-in-out;
   margin: var(--padding-s) 0;
   margin-top: calc(var(--padding-s) * 2);
   width: fit-content;
 }
 
-.skill_section_wrapper{
-  margin-bottom: var(--bottom-gap);
+.skill_section_skills_wrapper {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
