@@ -1,6 +1,6 @@
 .skill_section_wrapper {
   margin-bottom: var(--bottom-gap);
-  position: relative;
+  /* position: relative; */
 }
 
 .skill_section_wrapper:hover .skill_info_wrapper {

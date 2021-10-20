@@ -28,8 +28,8 @@ const Home: NextPage = () => {
 
 
         <Skills title={'Front End Skills'}>
-            <SkillTile title={'React Js'} tag={'CURRENT'} />
-            <SkillTile title={'Next Js'} runningText={'Yes this project is built with NEXT JS'}/>
+            <SkillTile title={'React Js'} />
+            <SkillTile title={'Next Js'} tag={'BUILT WITH'} runningText={'Yes this project is built with NEXT JS'}/>
             <SkillTile title={'HTML'} />
             <SkillTile title={'CSS'} />
             <SkillTile title={'Flutter'} />
@@ -44,6 +44,19 @@ const Home: NextPage = () => {
             <SkillTile title={'Firebase'} />
             <SkillTile title={'Supabase'} />
         </Skills>
+
+        <Skills title={'Programing Languages'}>
+            <SkillTile title={'Java Script'} />
+            <SkillTile title={'Type Script'} tag={'BUILT WITH'} runningText={'Yes this project is built with Type Script'}/>
+            <SkillTile title={'Dart'} />
+            <SkillTile title={'Java'} />
+        </Skills>
+
+        <Skills title={'Tools I Use'}>
+            <SkillTile title={'VS Code'} />
+            <SkillTile title={'Figma'} />
+            <SkillTile title={'Adobe XD'} />
+        </Skills> 
         {/* <Header />
         <AboutMe />
 
@@ -61,7 +74,8 @@ const Home: NextPage = () => {
             <SkillTile title={'VS Code'} />
             <SkillTile title={'Figma'} />
             <SkillTile title={'Adobe XD'} />
-        </Skills> */}
+        </Skills> 
+        */}
 
         <Experiecne />
         <div style={{height:'300px',width:'150px'}} />

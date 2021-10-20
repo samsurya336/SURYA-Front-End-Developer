@@ -92,6 +92,13 @@ export default function SkillTile(props: Props): ReactElement {
     return (
         <div ref={skillsTileRef} className={styles.skill_tile_wrapper} onClick={toggleCard}>
             {props.title}
+
+        {
+            props.tag &&
+            <div className={styles.skill_tag}>
+                {props.tag}
+            </div>
+        }
             
         </div>
     )

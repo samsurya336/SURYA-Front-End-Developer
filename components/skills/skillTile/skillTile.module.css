@@ -3,18 +3,19 @@
   width: 100%;
   flex-basis: 47%;
   /* height: var(--height); */
-  padding: 0.4em 0;
+  padding: 0.5em 0;
   position: relative;
   background-color: var(--black-700);
   margin-bottom: 20px;
   border-radius: 0.5em;
-  border: 1px solid var(--grey-lite-200);
+  border: 0.5px solid #3d3d3d98;
   /* overflow: hidden; */
   transition: opacity 0.3s ease-in-out;
   position: relative;
   text-align: center;
   font-size: var(--fs-400);
 }
+
 /* 
 .skill_tile_wrapper::after {
   position: absolute;
@@ -168,14 +169,15 @@
 
 .skill_tag {
   position: absolute;
-  top: 4px;
-  right: 10px;
+  bottom: 0;
+  left: 50%;
   width: fit-content;
-  color: var(--black-700);
-  padding: 0.3em 0.7em;
+  color: rgb(36, 180, 126);
+  padding: 0.1em 0.5em;
   border-radius: 0.2rem;
-  font-size: 0.5rem;
-  background: rgb(36, 180, 126);
+  font-size: var(--fs-100);
+  transform: translateX(-50%);
+  /* background: rgb(36, 180, 126);
   background: linear-gradient(
     131deg,
     rgba(36, 180, 126, 1) 0%,
@@ -185,7 +187,7 @@
     rgba(36, 180, 126, 1) 100%
   );
   background-size: 300% 100%;
-  animation: skill_tag_shine_anime 20s linear infinite forwards;
+  animation: skill_tag_shine_anime 20s linear infinite forwards; */
 }
 
 @-webkit-keyframes skill_tag_shine_anime {

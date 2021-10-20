@@ -11,7 +11,7 @@
 .skill_info_popUp_card {
   position: absolute;
   /* width: 90%; */
-  max-width: 500px;
+  max-width: 600px;
   border-radius: 8px;
   height: 350px;
   background-color: var(--black-700);
@@ -21,7 +21,7 @@
   border: 1px solid var(--grey-lite-200);
 
   font-size: var(--fs-400);
-  overflow: hidden;
+  overflow: scroll;
   /* top: 50%;
   left: 50%;
   transform: translate(-50%, -50%); */
@@ -35,6 +35,13 @@
   transition: color 0.5s linear, text-shadow 0.5s linear;
 }
 
-.skill_info_popUp_card > p{
+.skill_info_popUp_card > h4 {
+  position: absolute;
+  font-size: var(--fs-200);
+  top: 0.7em;
+  right: 1em;
+}
+
+.skill_info_popUp_card > p {
   padding: 0 1em;
 }

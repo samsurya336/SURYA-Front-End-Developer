@@ -1,4 +1,6 @@
 import React, { useEffect, useRef, ReactElement, RefObject, MutableRefObject } from 'react'
+import Image from 'next/image'
+import flutterPng from '../../../public/assets/skills/Flutter_logo.png'
 import styles from './skillInfoPopUp.module.css'
 
 export let skillPopUpRefGlob: RefObject<HTMLDivElement>; 
@@ -31,6 +33,18 @@ export const toggleSkillInfo = (isOpen:boolean,title:string='') => {
             cardStyle.left = `${rect.left}px`;
             cardStyle.height = `${skillTileHeight}px`;
             cardStyle.width = `${skillTileWidth}px`;
+
+
+            //BELOW CODE IS FOR ANIMATION ITH SCALE
+            // const popUpCardFullWidth:number = 0.9 * document.body.offsetWidth;
+            // const scaleY:number = 1 - ((350 - skillTileHeight) / 350);
+            // const scaleX:number = 1 - ((popUpCardFullWidth - skillTileWidth) / popUpCardFullWidth);
+            // cardStyle.height = `350px`;
+            // cardStyle.width = `${popUpCardFullWidth}px`;
+            // cardStyle.transformOrigin = 'top left';
+            // cardStyle.transform = `scale(${scaleX},${scaleY})`;
+        
+            
             (skillPopUpRefGlob.current?.children[1].children[0] as HTMLDivElement).textContent = title;
             
             setTimeout(() => {
@@ -47,7 +61,11 @@ export const toggleSkillInfo = (isOpen:boolean,title:string='') => {
                 cardStyle.top = '50%';
                 cardStyle.left = '50%';
                 cardStyle.transform = 'translate(-50%, -50%)';
-            }, 100);
+                cardStyle.overflow = 'scroll'
+
+                //BELOW CODE IS FOR ANIMATION ITH SCALE
+                // cardStyle.transform = `scale(1)`;
+            }, 30);
 
 
 
@@ -72,6 +90,7 @@ export const toggleSkillInfo = (isOpen:boolean,title:string='') => {
             const skillTileHeight = (currentSkillRef.current as HTMLDivElement).offsetHeight;
             const skillTileWidth = (currentSkillRef.current as HTMLDivElement).offsetWidth;
 
+            cardStyle.overflow = 'hidden'
             cardStyle.transform = 'translate(0, 0)';
             cardStyle.top = `${rect.top}px`;
             cardStyle.right = `${rect.right}px`;
@@ -79,6 +98,15 @@ export const toggleSkillInfo = (isOpen:boolean,title:string='') => {
             cardStyle.left = `${rect.left}px`;
             cardStyle.height = `${skillTileHeight}px`;
             cardStyle.width = `${skillTileWidth}px`;
+
+            //BELOW CODE IS FOR ANIMATION ITH SCALE
+            // const popUpCardFullWidth:number = 0.9 * document.body.offsetWidth;
+            // const scaleY:number = 1 - ((350 - skillTileHeight) / 350);
+            // const scaleX:number = 1 - ((popUpCardFullWidth - skillTileWidth) / popUpCardFullWidth);
+            // cardStyle.height = `350px`;
+            // cardStyle.width = `${popUpCardFullWidth}px`;
+            // cardStyle.transform = `scale(${scaleX},${scaleY})`;
+
 
             // function SkillTitleComp() > Title Text Component  
             // Dim and Scale Down The Title Text
@@ -90,7 +118,7 @@ export const toggleSkillInfo = (isOpen:boolean,title:string='') => {
                 (skillPopUpRefGlob.current as HTMLDivElement ).style.display = "none";
                 cardStyle.transition = 'none';
                 (currentSkillRef.current as HTMLDivElement).style.opacity = '1';
-            }, 320);
+            }, 250);
 
         }
 }
@@ -113,14 +141,17 @@ export default function SkillInfoPopUp(): ReactElement {
 
     return (
         <div ref={skillPopUpRef} className={styles.skill_info_popUp_wrapper}>
-            <button onClick={closeMe}> CLOSE ME </button>
+            {/* <button onClick={closeMe}> CLOSE ME </button> */}
+            <span />
             <div className={styles.skill_info_popUp_card}>
                 <h6>
                     React JS
                 </h6>
-                <p>
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
-                </p>
+                <h4 onClick={closeMe}>X</h4>
+                    {/* <Image src={flutterPng} /> */}
+                    <p>
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.  is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+                    </p>
             </div>
         </div>
     )
