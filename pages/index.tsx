@@ -39,8 +39,8 @@ const Home: NextPage = () => {
         <div className={styles.home_content_wrapper}>
           
           <div className={styles.home_content}>
-          {/* <Header />
-          <AboutMe /> */}
+          <Header />
+          <AboutMe />
           <section id='section_1'>
             <Skills title={'Front End Skills'}>
                 <SkillTile title={'React Js'} />

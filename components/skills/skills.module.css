@@ -1,5 +1,5 @@
 .skill_section_wrapper {
-  /* margin-bottom: var(--bottom-gap); */
+  margin-bottom: var(--bottom-gap);
   display: flex;
   justify-content: center;
   align-items: center;
