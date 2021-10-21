@@ -1,6 +1,17 @@
 .skill_section_wrapper {
-  margin-bottom: var(--bottom-gap);
+  /* margin-bottom: var(--bottom-gap); */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: pink; */
   /* position: relative; */
+}
+.skill_section {
+  width: 100%;
+  max-width: 600px;
+  opacity: 0;
+  transition: transform 0.3s ease-in-out, opacity 0.5s linear;
+  transform: scale(0.45);
 }
 
 .skill_section_wrapper:hover .skill_info_wrapper {
@@ -13,7 +24,7 @@
   /* transform: scale(0); */
   transition: transform 2s ease-in-out;
   margin: var(--padding-s) 0;
-  margin-top: calc(var(--padding-s) * 2);
+  /* margin-top: calc(var(--padding-s) * 2); */
   width: fit-content;
 }
 
@@ -21,4 +32,10 @@
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+}
+
+@media (min-width: 600px) {
+  .skill_section_wrapper {
+    height: 99vh;
+  }
 }
