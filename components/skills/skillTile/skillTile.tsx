@@ -99,6 +99,11 @@ export default function SkillTile(props: Props): ReactElement {
                 {props.tag}
             </div>
         }
+
+        <div className={styles.collaps_icon_wrapper}>
+            <span/>
+            <span/>
+        </div>
             
         </div>
     )

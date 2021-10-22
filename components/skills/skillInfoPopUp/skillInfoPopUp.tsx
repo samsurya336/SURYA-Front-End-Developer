@@ -67,24 +67,6 @@ export const toggleSkillInfo = (isOpen:boolean,title:string='') => {
                 // cardStyle.transform = `scale(1)`;
             }, 30);
 
-
-
-            // setTimeout(() => {
-            //     console.log('Close')
-            //     cardStyle.transform = 'translate(0, 0)';
-            //     cardStyle.top = `${rect.top}px`;
-            //     cardStyle.right = `${rect.right}px`;
-            //     cardStyle.bottom = `${rect.bottom}px`;
-            //     cardStyle.left = `${rect.left}px`;
-            //     cardStyle.height = `${skillTileHeight}px`;
-            //     cardStyle.width = `${skillTileWidth}px`;
-
-            //     setTimeout(() => {
-            //         (skillPopUpRefGlob.current as HTMLDivElement ).style.display = "none";
-            //         cardStyle.transition = 'none';
-            //     }, 900);
-            // }, 2000);
-
             
         }else{
             const skillTileHeight = (currentSkillRef.current as HTMLDivElement).offsetHeight;

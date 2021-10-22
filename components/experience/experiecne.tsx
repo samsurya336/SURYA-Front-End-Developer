@@ -1,11 +1,32 @@
-import React, { ReactElement } from 'react'
+import React, { useContext, useRef, ReactElement, RefObject } from 'react'
+import { CurrentSectionContext } from '../../contexts/currentSectionContext'
+import useDetectVisiblity from '../../hooks/useDetectVisiblity';
 import DateComp from './date/dateComp'
 import styles from './experience.module.css'
 
 
 export default function Experiecne(): ReactElement {
+
+
+    const sectionContext = useContext(CurrentSectionContext)
+    const experienceRef: RefObject<HTMLElement> = useRef<HTMLElement>(null);
+    const isVisible: IntersectionObserverEntry | undefined = useDetectVisiblity(experienceRef,'-50px');
+
+
+    if(experienceRef.current){
+
+        if(isVisible?.isIntersecting){
+            (experienceRef.current as HTMLElement ).style.opacity = '1';
+            sectionContext.toggleSection('section_6')
+        }else{
+            (experienceRef.current as HTMLElement ).style.opacity = '0';
+        }
+        
+    }
+
+
     return (
-        <section >
+        <section className={styles.experience_section_wrapper} ref={experienceRef} >
             <p className={styles.experience_heading}>Experience</p>
             <div className={styles.updating_progress_wrapper} />
             <p className={styles.progress_bottom_text}>auto upgrading my-self and <span>skills</span> eveyday</p>

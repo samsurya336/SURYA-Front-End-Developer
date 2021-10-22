@@ -1,0 +1,14 @@
+.footer_section_wrapper {
+  width: 100%;
+  border-top: 0.5px solid var(--grey-lite-200);
+  padding: 1em 0;
+}
+
+.footer_section_wrapper > p > a {
+  color: var(--grey-100);
+  transition: color 0.3s linear;
+}
+
+.footer_section_wrapper > p > a:hover {
+  color: #ffff;
+}

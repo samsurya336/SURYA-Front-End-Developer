@@ -1,5 +1,9 @@
 import type { NextPage } from 'next'
+import {useRef} from 'react'
 import Head from 'next/head'
+
+import { CurrentSectionProvider } from '../contexts/currentSectionContext'
+
 import ScrollProgress from '../components/scrollProgress/scrollProgress'
 import Experiecne from '../components/experience/experiecne'
 import styles from '../styles/Home.module.css'
@@ -10,15 +14,22 @@ import Skills from '../components/skills/skills'
 import SkillTile from '../components/skills/skillTile/skillTile'
 import SkillInfoPopUp from '../components/skills/skillInfoPopUp/skillInfoPopUp'
 import SideMenu from '../components/sideMenu/sideMenu'
+import ContactMe from '../components/contactMe/contactMe'
+import Footer from '../components/footer/footer'
+
+
 
 //design Two
 // 🧑🏻‍💻
 // Surya - Front End Developer 💻
 const Home: NextPage = () => {
+
+  const sectionValueRef = useRef({toggleSection:(section:string)=>{}})
+
   return (
     <>
     
-    <div className={styles.fixed_BG_image} />
+    <BackGround />
     
     <div className={styles.home_wrapper}>
 
@@ -29,6 +40,7 @@ const Home: NextPage = () => {
       </Head>
 
 
+    <CurrentSectionProvider value={sectionValueRef.current} >
 
       <ScrollProgress />
       
@@ -39,58 +51,68 @@ const Home: NextPage = () => {
         <div className={styles.home_content_wrapper}>
           
           <div className={styles.home_content}>
-          <Header />
-          <AboutMe />
-          <section id='section_1'>
-            <Skills title={'Front End Skills'}>
-                <SkillTile title={'React Js'} />
-                <SkillTile title={'Next Js'} tag={'BUILT WITH'} runningText={'Yes this project is built with NEXT JS'}/>
-                <SkillTile title={'HTML'} />
-                <SkillTile title={'CSS'} />
-                <SkillTile title={'Flutter'} />
-                <SkillTile title={'Three Js'} tag={'BETA'} />
-            </Skills>
 
-          </section>
+            {/* <section id='section_1'>
+              <Header />
+              <AboutMe />
+            </section>
 
             <section id='section_2'>
-            
-            <Skills title={'Backend End Skills'}>
-                <SkillTile title={'Postgres SQL'} />
-                <SkillTile title={'Mongo DB'} />
-                <SkillTile title={'Node JS'} />
-                <SkillTile title={'Express'} />
-                <SkillTile title={'Firebase'} />
-                <SkillTile title={'Supabase'} />
-            </Skills>
-          </section>
+              <Skills title={'Front End Skills'} section={'section_2'}>
+                  <SkillTile title={'React Js'} />
+                  <SkillTile title={'Next Js'} tag={'BUILT WITH'} runningText={'Yes this project is built with NEXT JS'}/>
+                  <SkillTile title={'HTML'} />
+                  <SkillTile title={'CSS'} />
+                  <SkillTile title={'Flutter'} />
+                  <SkillTile title={'Three Js'} tag={'BETA'} />
+              </Skills>
+            </section>
+
 
             <section id='section_3'>
-            
-            <Skills title={'Programing Languages'}>
-                <SkillTile title={'Java Script'} />
-                <SkillTile title={'Type Script'} tag={'BUILT WITH'} runningText={'Yes this project is built with Type Script'}/>
-                <SkillTile title={'Dart'} />
-                <SkillTile title={'Java'} />
-            </Skills>
-          </section>
+              <Skills title={'Backend End Skills'} section={'section_3'}>
+                  <SkillTile title={'Postgres SQL'} />
+                  <SkillTile title={'Mongo DB'} />
+                  <SkillTile title={'Node JS'} />
+                  <SkillTile title={'Express'} />
+                  <SkillTile title={'Firebase'} />
+                  <SkillTile title={'Supabase'} />
+              </Skills>
+            </section>
+
 
             <section id='section_4'>
-            
-            <Skills title={'Tools I Use'}>
-                <SkillTile title={'VS Code'} />
-                <SkillTile title={'Figma'} />
-                <SkillTile title={'Adobe XD'} />
-            </Skills> 
-          </section>
+              <Skills title={'Programing Languages'} section={'section_4'}>
+                  <SkillTile title={'Java Script'} />
+                  <SkillTile title={'Type Script'} tag={'BUILT WITH'} runningText={'Yes this project is built with Type Script'}/>
+                  <SkillTile title={'Dart'} />
+                  <SkillTile title={'Java'} />
+              </Skills>
+            </section>
+
 
             <section id='section_5'>
-            
-            <Experiecne />
-          </section>
-            <div style={{height:'300px',width:'150px'}} />
-            <div style={{height:'300px',width:'150px'}} />
-            <div style={{height:'300px',width:'150px'}} />
+              <Skills title={'Tools I Use'} section={'section_5'}>
+                  <SkillTile title={'VS Code'} />
+                  <SkillTile title={'Figma'} />
+                  <SkillTile title={'Adobe XD'} />
+              </Skills> 
+            </section>
+
+
+            <section id='section_6'>
+              <Experiecne />
+            </section> */}
+
+            <section id='section_7'>
+              <ContactMe />
+            </section>
+
+              {/* <div style={{height:'300px',width:'150px'}} />
+              <div style={{height:'300px',width:'150px'}} />
+              <div style={{height:'300px',width:'150px'}} /> */}
+
+              <Footer />
 
           </div>
         </div>
@@ -122,6 +144,8 @@ const Home: NextPage = () => {
 
 
         <SkillInfoPopUp />
+
+        </CurrentSectionProvider >
       
 
     </div>
@@ -131,15 +155,47 @@ const Home: NextPage = () => {
   )
 
 
-  function onNavigate(){
-    const href = window.location.href
-    console.log(href)
-  }
-
-  function isCurrentSection(){
-    
-    return true;
-  }
 }
 
 export default Home
+
+
+function BackGround(){
+  return(
+    <div className={styles.fixed_BG_image}>
+      <p>
+        FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE 
+        FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE 
+        FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE 
+        FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE REACT-JS REACT-NATIVE WEB-DEV SOFTWARE REACT-JS REACT-NATIVE WEB-DEV SOFTWARE
+        FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE 
+        FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE 
+        FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE 
+        FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE 
+        FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE 
+        FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE REACT-JS REACT-NATIVE WEB-DEV SOFTWARE REACT-JS REACT-NATIVE WEB-DEV SOFTWARE
+        FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE 
+        FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE 
+        FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWAREFLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE 
+        FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE 
+        FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE 
+        FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE REACT-JS REACT-NATIVE WEB-DEV SOFTWARE REACT-JS REACT-NATIVE WEB-DEV SOFTWARE
+        FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE 
+        FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE 
+        FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWAREFLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE 
+        FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE 
+        FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE 
+        FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE REACT-JS REACT-NATIVE WEB-DEV SOFTWARE REACT-JS REACT-NATIVE WEB-DEV SOFTWARE
+        FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE 
+        FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE 
+        FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWAREFLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE 
+        FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE 
+        FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE 
+        FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE REACT-JS REACT-NATIVE WEB-DEV SOFTWARE REACT-JS REACT-NATIVE WEB-DEV SOFTWARE
+        FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE 
+        FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE 
+        FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE
+      </p>
+    </div>
+  )
+}

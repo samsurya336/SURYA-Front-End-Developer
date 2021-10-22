@@ -1,10 +1,12 @@
-import React , { useRef, RefObject} from 'react'
+import React , { useContext, useRef, RefObject} from 'react'
+import { CurrentSectionContext } from '../../contexts/currentSectionContext'
 import useDetectVisiblity from '../../hooks/useDetectVisiblity';
 import SkillTile from './skillTile/skillTile';
 import styles from './skills.module.css';
 
-export default function Skills({title,children}:{title:string,children:React.ReactNode}): JSX.Element {
+export default function Skills({title,section,children}:{title:string,section:string,children:React.ReactNode}): JSX.Element {
 
+    const sectionContext = useContext(CurrentSectionContext)
     const skillsRef: RefObject<HTMLDivElement> = useRef<HTMLDivElement>(null);
     const isVisible: IntersectionObserverEntry | undefined = useDetectVisiblity(skillsRef,'-50px');
 
@@ -14,6 +16,7 @@ export default function Skills({title,children}:{title:string,children:React.Rea
         if(isVisible?.isIntersecting){
             (skillsRef.current as HTMLDivElement ).style.opacity = '1';
             (skillsRef.current as HTMLDivElement ).style.transform = 'scale(1)';
+            sectionContext.toggleSection(section)
         }else{
             (skillsRef.current as HTMLDivElement ).style.opacity = '0';
             (skillsRef.current as HTMLDivElement ).style.transform = 'scale(0.45)';
@@ -30,9 +33,6 @@ export default function Skills({title,children}:{title:string,children:React.Rea
                 <div className={styles.skill_section_skills_wrapper}>
                     {children}
                 </div>
-            </div>
-            <div style={{width:'100px',height: '100px', backgroundColor:'green', position: 'absolute', bottom:'20px'}}>
-
             </div>
         </section>
     );
