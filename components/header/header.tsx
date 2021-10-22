@@ -52,7 +52,7 @@ export default function Header(): JSX.Element {
     return(
         <section className={styles.role_section_wrapper}>
 
-            <p> Full stack developer </p>
+            <p> Front End developer </p>
             <p> UI / UX </p>
 
         </section>

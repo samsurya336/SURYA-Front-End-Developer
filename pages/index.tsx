@@ -52,7 +52,7 @@ const Home: NextPage = () => {
           
           <div className={styles.home_content}>
 
-            {/* <section id='section_1'>
+            <section id='section_1'>
               <Header />
               <AboutMe />
             </section>
@@ -102,7 +102,7 @@ const Home: NextPage = () => {
 
             <section id='section_6'>
               <Experiecne />
-            </section> */}
+            </section>
 
             <section id='section_7'>
               <ContactMe />

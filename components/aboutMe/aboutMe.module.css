@@ -1,9 +1,8 @@
 .about_me_section_wrapper {
   padding: var(--padding-s);
   border: 1px solid var(--grey-lite-200);
-  background-color: var(--black-700);
   border-radius: var(--padding-s);
-  background-color: var(--black-700);
+  background-color: var(--black-600);
   margin-bottom: var(--bottom-gap);
   animation: about_me_anime 3s forwards;
 }

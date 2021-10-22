@@ -12,3 +12,18 @@
 .footer_section_wrapper > p > a:hover {
   color: #ffff;
 }
+
+.footer_social_media_section_wrapper{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 1em 0;
+}
+
+.footer_social_media_section_wrapper > a > *{
+  transition: color 0.3s linear;
+}
+
+.footer_social_media_section_wrapper > a:hover > * {
+  color: #ffff;
+}
