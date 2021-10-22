@@ -1,9 +1,9 @@
 .home_wrapper {
+  position: relative;
   width: 100%;
   height: 100%;
   box-sizing: border-box;
   padding: var(--padding-s);
-  position: relative;
 }
 
 .fixed_BG_image {
@@ -34,9 +34,9 @@
 }
 
 .home_content_wrapper {
-  flex-basis: 70%;
   display: flex;
   justify-content: center;
+  flex-basis: 70%;
   width: 100%;
 }
 
@@ -51,12 +51,12 @@
 }
 
 .home_menus {
-  height: 100vh;
   position: fixed;
-  border-left: 1px solid var(--grey-lite-100);
-  padding: 2em;
-  background-color: #18181888;
+  height: 100vh;
   width: calc(0.3 * 100vw);
+  background-color: #18181888;
+  padding: 2em;
+  border-left: 1px solid var(--grey-lite-100);
 }
 
 .home_menu {
