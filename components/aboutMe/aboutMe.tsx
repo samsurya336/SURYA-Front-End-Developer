@@ -13,6 +13,7 @@ export default function AboutMe(): JSX.Element {
         who writes clean, elegant and efficient code currently based in INDIA and having an experience 
         of building web application with JavaScript / ReactJS / NextJS / NodeJS and Cross-platform Mobile 
         applications with Flutter. I am always experimenting always learning and never bored.
+        <a href={`${window.location}/assets/profile_pic.jpeg`} download="surya-dev.jpeg"> Download my Resume</a>
       </p>
     </section>
   );

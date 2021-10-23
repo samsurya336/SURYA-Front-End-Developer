@@ -52,7 +52,7 @@ const Home: NextPage = () => {
           
           <div className={styles.home_content}>
 
-            <section id='section_1'>
+            {/* <section id='section_1'>
               <Header />
               <AboutMe />
             </section>
@@ -102,23 +102,20 @@ const Home: NextPage = () => {
 
             <section id='section_6'>
               <Experiecne />
-            </section>
+            </section> */}
 
             <section id='section_7'>
               <ContactMe />
             </section>
 
-              {/* <div style={{height:'300px',width:'150px'}} />
-              <div style={{height:'300px',width:'150px'}} />
-              <div style={{height:'300px',width:'150px'}} /> */}
 
-              <Footer />
+              {/* <Footer /> */}
 
           </div>
         </div>
 
 
-        <SideMenu />
+        {/* <SideMenu /> */}
 
 
         </div>
@@ -126,6 +123,9 @@ const Home: NextPage = () => {
         {/* 
 
 
+        <div style={{height:'300px',width:'150px'}} />
+        <div style={{height:'300px',width:'150px'}} />
+        <div style={{height:'300px',width:'150px'}} />
         
 
         <Skills title={'Programing Languages'}>
@@ -164,6 +164,7 @@ function BackGround(){
   return(
     <div className={styles.fixed_BG_image}>
       <p>
+        FRONT-END FLUTTER REACT-JS REACT-NATIVE NEXT-JS THREE-JS NODE-JS EXPRESS POSTGRES-SQL SUPABASE FIREBASE MONGODB UI/UX FIGMA ADOBE-XD ANDROID IOS WINDOWS LINUX CHROME WEB-DEV MOBILE-DEV SOFTWARE FRONT-END 
         FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE 
         FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE 
         FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE FLUTTER REACT-JS REACT-NATIVE WEB-DEV SOFTWARE 

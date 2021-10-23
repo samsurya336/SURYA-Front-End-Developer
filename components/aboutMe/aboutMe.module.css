@@ -32,3 +32,8 @@
   color: var(--grey-500);
   font-size: var(--fs-400);
 }
+
+.about_me_section_wrapper > p > a {
+  font-size: var(--fs-200);
+  color: var(--green-500);
+}
