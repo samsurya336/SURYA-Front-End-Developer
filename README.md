@@ -1,3 +1,35 @@
+### Structuring CSS properties
+
+##### -> display stuffs
+
+display: flex,
+justify-content,
+
+##### -> Positioning stuffs
+
+position: absolute;
+left: 1rem;
+right,
+z-index
+
+##### -> Box-model stuff
+
+height,
+background-color
+padding,
+margin
+
+##### -> Typography
+
+font-size
+color
+
+##### -> Manipulation
+
+transform,
+filter,
+opacity
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started

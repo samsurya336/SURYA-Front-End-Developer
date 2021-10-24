@@ -1,0 +1,173 @@
+.contactMe_section_wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin-bottom: var(--bottom-gap);
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out;
+  transition-delay: 0.3s;
+}
+.contactMe_section {
+  width: 100%;
+  max-width: 600px;
+}
+
+.contactMe_heading {
+  width: fit-content;
+  margin-top: var(--padding-s);
+  font-size: var(--fs-500);
+  color: var(--grey-100);
+}
+
+.contactMe_fields_container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.input_field_wrapper {
+  flex-basis: 100%;
+  position: relative;
+  margin-top: 1em;
+}
+
+.input_field {
+  width: 100%;
+  padding: 1em;
+  border: 0.5px solid #3d3d3d;
+  background-color: var(--black-600);
+  border-radius: 0.5em;
+  margin: 0;
+  color: var(--grey-100);
+}
+
+.input_field:active,
+.input_field:focus,
+.input_field:hover {
+  outline: 0.2px solid var(--grey-100);
+}
+
+.input_field_suffix_icon {
+  position: absolute;
+  top: 0.7em;
+  right: 0.5em;
+}
+
+.input_field_wrapper > p {
+  font-size: var(--fs-200);
+}
+
+.message_field {
+  flex-basis: 100%;
+  height: 100px;
+  border: 0.5px solid #3d3d3d;
+  background-color: var(--black-600);
+  border-radius: 0.5em;
+  padding: 1em;
+  margin-top: 1em;
+  resize: none;
+  color: var(--grey-100);
+  transition: border 0.5s linear;
+}
+
+.message_field:active,
+.message_field:focus {
+  outline: 0.2px solid var(--grey-100);
+}
+
+.message_field:hover {
+  border: 0.5px solid var(--grey-100);
+}
+
+.message_field + p {
+  font-size: var(--fs-200);
+}
+
+.submit_btn {
+  position: relative;
+  flex-basis: 100%;
+  margin: 1em 0;
+  padding: 1em;
+  background-color: transparent;
+  border: 0.5px solid #3d3d3d;
+  border-radius: 0.5em;
+  overflow: hidden;
+  color: var(--grey-500);
+  text-align: center;
+  cursor: pointer;
+  transition: border 0.5s linear, color 0.5s linear;
+}
+
+.submit_btn:hover {
+  border: 0.5px solid var(--grey-100);
+  color: var(--grey-100);
+}
+
+.btn_hover {
+  justify-content: center;
+  display: flex;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--black-700);
+  color: var(--grey-100);
+  align-items: center;
+  transition: transform 0.2s linear;
+  transform: translateY(100%);
+}
+
+.submit_btn:hover .btn_hover {
+  transform: translateY(0);
+}
+
+
+.thankYou_card {
+  position: relative;
+  width: 100%;
+  height: 140px;
+  transition: transform 0.6s ease-in-out;
+  display: flex;
+  justify-content: center;
+  transform: scale(0);
+  transform-origin: bottom;
+}
+
+.gradient_BG_wrapper {
+  width: 300px;
+  height: 140px;
+  background: var(--green-gradiant);
+  opacity: 0.7;
+  border-radius: 8px;
+}
+
+.content_wrapper {
+  position: absolute;
+  width: 300px;
+  height: 140px;
+  background: transparent;
+  border-radius: 8px;
+  padding: 1em;
+  color: var(--black-700);
+}
+
+#thankYouCardToggle:checked + .thankYou_card {
+  transform: scale(1);
+}
+
+@media (min-width: 600px) {
+  .contactMe_section_wrapper {
+    height: 90vh;
+  }
+
+  .input_field {
+    flex-basis: 48%;
+  }
+  .input_field_wrapper {
+    flex-basis: 48%;
+    margin-bottom: 1em;
+  }
+}

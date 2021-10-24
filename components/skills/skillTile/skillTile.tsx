@@ -2,6 +2,8 @@ import React, { useRef, ReactElement, RefObject, MutableRefObject } from 'react'
 import useDetectVisiblity from '../../../hooks/useDetectVisiblity'
 import Image from 'next/image'
 import flutterLogo from '../../../public/assets/skills/Flutter_logo.png'
+import { skillPopUpRefGlob } from '../skillInfoPopUp/skillInfoPopUp'
+import { toggleSkillInfo ,assignCurrentSkillRef } from '../skillInfoPopUp/skillInfoPopUp'
 import styles from './skillTile.module.css'
 
 interface Props {
@@ -14,142 +16,141 @@ export default function SkillTile(props: Props): ReactElement {
 
     const skillsTileRef: RefObject<HTMLDivElement> = useRef<HTMLDivElement>(null);
     const openCardRef: MutableRefObject<boolean> = useRef<boolean>(false);
-    const isVisible: IntersectionObserverEntry | undefined = useDetectVisiblity(skillsTileRef,'-100px');
-
-    if(isVisible){
-        
-        const skillInfoCardElmt:HTMLDivElement = (skillsTileRef.current?.children[0] as HTMLDivElement);
-        const skillTitleElmt:HTMLDivElement = (skillsTileRef.current?.children[1] as HTMLDivElement);
-        
-        if(isVisible.isIntersecting){
-            skillTitleElmt.style.transform = "translateY(0)"
-            skillTitleElmt.style.opacity = "1"
-        }
-        // else{
-        //     skillTitleElmt.style.transform = "translateY(80px)"
-        //     skillTitleElmt.style.opacity = "0"
-        // }
-
-    }
+    
 
     function toggleCard(){
-        openCardRef.current = !openCardRef.current;
+        assignCurrentSkillRef(skillsTileRef);
+        toggleSkillInfo(true,props.title);
+        // openCardRef.current = !openCardRef.current;
+        // let val = (skillPopUpRefGlob.current as HTMLDivElement ).style.getPropertyValue('display');
+        // const cardStyle = (skillPopUpRefGlob.current?.children[1] as HTMLDivElement).style;
+        // const skilElmt = (skillsTileRef.current as HTMLDivElement)
+        // var rect = skilElmt.getBoundingClientRect();
 
-        let skillTileElmt:HTMLDivElement = (skillsTileRef.current as HTMLDivElement);
-        let skillInfoCardElmt:HTMLDivElement = (skillsTileRef.current?.children[0] as HTMLDivElement);
-        let skillTitleElmt:HTMLDivElement = (skillsTileRef.current?.children[1] as HTMLDivElement);
+        
+        // if(openCardRef.current){
+        //     (skillPopUpRefGlob.current as HTMLDivElement ).style.display = "block";
+        //     // cardStyle.background = 'blue'
+        //     const skillTileHeight = (skillsTileRef.current as HTMLDivElement).offsetHeight;
+        //     const skillTileWidth = (skillsTileRef.current as HTMLDivElement).offsetWidth;
 
-        let skillTitleTextCompElmt:HTMLDivElement = (skillTitleElmt.children[0].children[1] as HTMLDivElement)
+        //     cardStyle.transition = 'none';
+        //     cardStyle.top = `${rect.top}px`;
+        //     cardStyle.right = `${rect.right}px`;
+        //     cardStyle.bottom = `${rect.bottom}px`;
+        //     cardStyle.left = `${rect.left}px`;
+        //     cardStyle.height = `${skillTileHeight}px`;
+        //     cardStyle.width = `${skillTileWidth}px`;
 
-        if(openCardRef.current){
-            onOpenCardAnimations(skillInfoCardElmt,skillTitleElmt,skillTitleTextCompElmt);
-        }else{
-            onCloseCardAnimations(skillTitleElmt,skillTitleTextCompElmt);
-        }
+        //     setTimeout(() => {
+        //         cardStyle.transition = 'all 0.7s';
+        //         cardStyle.width = `90%`;
+        //         cardStyle.height = `300px`;
+        //         cardStyle.top = '50%';
+        //         cardStyle.left = '50%';
+        //         cardStyle.transform = 'translate(-50%, -50%)';
+        //     }, 100);
+
+
+
+        //     setTimeout(() => {
+        //         console.log('Close')
+        //         cardStyle.transform = 'translate(0, 0)';
+        //         cardStyle.top = `${rect.top}px`;
+        //         cardStyle.right = `${rect.right}px`;
+        //         cardStyle.bottom = `${rect.bottom}px`;
+        //         cardStyle.left = `${rect.left}px`;
+        //         cardStyle.height = `${skillTileHeight}px`;
+        //         cardStyle.width = `${skillTileWidth}px`;
+
+        //         setTimeout(() => {
+        //             (skillPopUpRefGlob.current as HTMLDivElement ).style.display = "none";
+        //             cardStyle.transition = 'none';
+        //         }, 900);
+        //     }, 2000);
+
+            
+        // }else{
+        //     const skillTileHeight = (skillsTileRef.current as HTMLDivElement).offsetHeight;
+        //     const skillTileWidth = (skillsTileRef.current as HTMLDivElement).offsetWidth;
+
+        //     cardStyle.transform = 'translate(0, 0)';
+        //     cardStyle.height = `${skillTileHeight}px`;
+        //     cardStyle.width = `${skillTileWidth}px`;
+
+        //     setTimeout(() => {
+        //         (skillPopUpRefGlob.current as HTMLDivElement ).style.display = "none";
+        //         cardStyle.transition = 'none';
+        //     }, 100);
+
+        // }
     }
 
 
-    function onOpenCardAnimations(skillInfoCardElmt:HTMLDivElement,skillTitleElmt:HTMLDivElement,skillTitleTextCompElmt:HTMLDivElement){
-
-        //Increase The Height of Info Card
-        skillsTileRef.current?.style.setProperty('--height',(skillInfoCardElmt.offsetHeight+80+'px'));
-
-        //skill Title Component function SkillTitleComp()
-        // Animate The Bottom Border when Card Opened
-        skillTitleElmt.style.borderBottomLeftRadius = '0';
-        skillTitleElmt.style.borderBottomRightRadius = '0';
-
-        // function SkillTitleComp() > Title Text Component  
-        // Glow and Scale Up The Title Text 
-        (skillTitleTextCompElmt.children[0] as HTMLHeadingElement).style.color = '#ffff';
-        (skillTitleTextCompElmt.children[0] as HTMLHeadingElement).style.transform = 'scale(1.3)';
-        (skillTitleTextCompElmt.children[0] as HTMLHeadingElement).style.textShadow = '0 0 5px #adadad, 0 0 10px #adadad, 0 0 15px #adadad,0 0 20px #adadad, 0 0 25px #adadad, 0 0 30px #adadad, 0 0 35px #adadad';
-
-        // function SkillTitleComp() > Collaps_icon  
-        // Roate the collaps Icon
-        (skillTitleTextCompElmt.children[2] as HTMLDivElement).style.transform = 'translateY(-50%) rotate(180deg)';
-        // Animate the Icons A.K.A spans
-        (skillTitleTextCompElmt.children[2].children[0] as HTMLSpanElement).style.width = '140%';
-        (skillTitleTextCompElmt.children[2].children[1] as HTMLSpanElement).style.width = '140%';
-
-    }
-
-    function onCloseCardAnimations(skillTitleElmt:HTMLDivElement,skillTitleTextCompElmt:HTMLDivElement){
-
-        //Decrease The Height of Info Card
-        skillsTileRef.current?.style.setProperty('--height','80px')
-
-        //skill Title Component function SkillTitleComp()
-        // Animate The Bottom Border when Card Closed
-        skillTitleElmt.style.borderBottomLeftRadius = '1rem';
-        skillTitleElmt.style.borderBottomRightRadius = '1rem';
-
-        // function SkillTitleComp() > Title Text Component  
-        // Dim and Scale Down The Title Text
-        (skillTitleTextCompElmt.children[0] as HTMLHeadingElement).style.color = '#7e7e7e';
-        (skillTitleTextCompElmt.children[0] as HTMLHeadingElement).style.transform = 'scale(1)';
-        (skillTitleTextCompElmt.children[0] as HTMLHeadingElement).style.textShadow = 'none';
-
-        // function SkillTitleComp() > Collaps_icon  
-        // Roate the collaps Icon
-        (skillTitleTextCompElmt.children[2] as HTMLDivElement).style.transform = 'translateY(-50%) rotate(0deg)';
-        // Animate the Icons A.K.A spans
-        (skillTitleTextCompElmt.children[2].children[0] as HTMLSpanElement).style.width = '70%';
-        (skillTitleTextCompElmt.children[2].children[1] as HTMLSpanElement).style.width = '70%';
-    }
+    
 
     return (
         <div ref={skillsTileRef} className={styles.skill_tile_wrapper} onClick={toggleCard}>
+            {props.title}
 
-            <SkillInfoCard />
+        {
+            props.tag &&
+            <div className={styles.skill_tag}>
+                {props.tag}
+            </div>
+        }
 
-            <SkillTitleComp title={props.title} runningText={props.runningText} isCardOpened={openCardRef.current} tag={props.tag} />
-
+        <div className={styles.collaps_icon_wrapper}>
+            <span/>
+            <span/>
+        </div>
+            
         </div>
     )
 
 }
 
-function SkillInfoCard(){
-    return(
-        <div className={styles.skill_tile_info_card}>
-            is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
-        </div>
-    );
-}
 
-function SkillTitleComp(props:{title:string,runningText?:string,isCardOpened:boolean,tag?:string}){
-    return(
-        <div className={styles.skill_tile_header_wrapper}>
-            <div className={styles.skill_tile_header}>
-                <LogoComp />
-                <TitleComp />
-            </div>
-        </div>
-    );
+// function SkillInfoCard(){
+//     return(
+//         <div className={styles.skill_tile_info_card}>
+//             is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+//         </div>
+//     );
+// }
 
-    function LogoComp(){
-        return(
-            <div className={styles.logo_wrapper}>
-                <Image src={flutterLogo} />
-            </div>
-        )
-    }
+// function SkillTitleComp(props:{title:string,runningText?:string,isCardOpened:boolean,tag?:string}){
+//     return(
+//         <div className={styles.skill_tile_header_wrapper}>
+//             <div className={styles.skill_tile_header}>
+//                 {/* <LogoComp /> */}
+//                 <TitleComp />
+//             </div>
+//         </div>
+//     );
 
-    function TitleComp(){
-        return(
-            <div className={styles.skill_title_text_wrapper}>
-                <h5>{props.title} </h5>
-                <p>{props.runningText}</p>
-                <div className={styles.collaps_icon_wrapper}>
-                    <span />
-                    <span />
-                </div>
-                {
-                    props.tag && 
-                    <div className={styles.skill_tag}>{props.tag}</div>
-                }
-            </div>
-        )
-    }
-}
+//     function LogoComp(){
+//         return(
+//             <div className={styles.logo_wrapper}>
+//                 <Image src={flutterLogo} />
+//             </div>
+//         )
+//     }
+
+//     function TitleComp(){
+//         return(
+//             <div className={styles.skill_title_text_wrapper}>
+//                 <h5>{props.title} </h5>
+//                 <p>{props.runningText}</p>
+//                 <div className={styles.collaps_icon_wrapper}>
+//                     <span />
+//                     <span />
+//                 </div>
+//                 {
+//                     props.tag && 
+//                     <div className={styles.skill_tag}>{props.tag}</div>
+//                 }
+//             </div>
+//         )
+//     }
+// }

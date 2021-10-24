@@ -43,17 +43,17 @@ export default function DateComp(): ReactElement {
 
     }
 
-    const calculateHours = ():string => {
+    // const calculateHours = ():number => {
 
-        let hours = currentdatetime.getHours();
+    //     let hours = currentdatetime.getHours();
 
-        if(hours > 12){
-            hours = hours - 12;
-        }
+    //     if(hours > 12){
+    //         hours = hours - 12;
+    //     }
 
-        return hours.toString();
+    //     return hours;
 
-    }
+    // }
 
 
     return(
@@ -62,8 +62,13 @@ export default function DateComp(): ReactElement {
             <div className={styles.date_comp_wrapper}>
                 <span>{calculateYear()}</span><p>Year &nbsp;</p>
                 <span>{calculateDays()}</span><p>Days &nbsp;</p>
-                <span>{calculateHours()}</span><p>Hrs &nbsp;</p>
-                <span>12</span><p>Sec</p>
+                {/* <span>{calculateHours()}</span><p>Hrs &nbsp;</p> */}
+                <SecondsComp 
+                    seconds={currentdatetime.getSeconds()}
+                    hours={currentdatetime.getHours()}
+                    minutes={currentdatetime.getMinutes()}
+                />
+                {/* <span>12</span><p>Sec</p> */}
                 {/* <p>{`${calculateYear()} Year - ${calculateDays()} Days - ${calculateHours()} Hour `}</p> */}
             </div>
 
@@ -88,44 +93,43 @@ function SecondsComp({seconds,hours,minutes}: SecondsProp): ReactElement {
     const [hoursState, setHoursState] = useState<number>(0)
 
     const minutesRef = useRef(0)
-    console.log(minutesRef.current)
 
     useEffect(() => {
-        // let isMounted = true;
-        // let secondsInc = seconds;
-        // setSecondsState(seconds)
-        // setHoursState(hours)
-        // minutesRef.current = minutes;
-        // const interval = setInterval(() => {
+        let isMounted = true;
+        let secondsInc = seconds;
+        setSecondsState(seconds)
+        setHoursState(hours)
+        minutesRef.current = minutes;
+        const interval = setInterval(() => {
 
-        //     if(secondsInc <= 60){
-        //         secondsInc++;
-        //         setSecondsState(prevState => prevState + 1)
-        //     }else{
-        //         minutesRef.current = minutesRef.current + 1;
-        //         secondsInc = 1;
-        //         setSecondsState(1)
-        //     }
+            if(secondsInc < 60){
+                secondsInc++;
+                setSecondsState(prevState => prevState + 1)
+            }else{
+                minutesRef.current = minutesRef.current + 1;
+                secondsInc = 1;
+                setSecondsState(1)
+            }
 
-        //     if(minutesRef.current === 60){
-        //             setHoursState(prevState => prevState + 1)
-        //             minutesRef.current = 0;
-        //     }
+            if(minutesRef.current === 60){
+                    setHoursState(prevState => prevState + 1)
+                    minutesRef.current = 0;
+            }
 
             
-        // }, 1000);
+        }, 1000);
 
-        // return () => {
-        //     isMounted = false;
-        //     clearInterval(interval)
-        // }
+        return () => {
+            isMounted = false;
+            clearInterval(interval)
+        }
     }, [])
 
     return (
-        <div>
-            <p>Hours {`${hoursState}`}</p>
-            <p>Seconds {`${secondsState}`}</p>
-        </div>
+        <span>
+            <span>{`${hoursState}`}</span><p> Hrs &nbsp;</p>
+            <span>{`${secondsState}`}</span><p> Sec</p>
+        </span>
     )
 }
 
