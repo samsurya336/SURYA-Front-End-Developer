@@ -19,6 +19,7 @@ export default function ContactMe(): ReactElement {
     const contactMeRef: RefObject<HTMLElement> = useRef<HTMLElement>(null);
     const dataRef: MutableRefObject<dataRefINTF> = useRef({name:'',nameError:'',email:'',emailError:'',msg:'',msgError:'',hasErrors:false});
     const [buttonState, setButtonState] = useState<string>('SEND')
+    const [_, setValidate] = useState<boolean>(false)
     const isVisible: IntersectionObserverEntry | undefined = useDetectVisiblity(contactMeRef,'-50px');
 
 
@@ -45,50 +46,65 @@ export default function ContactMe(): ReactElement {
         
     }
 
-
-    const sendMail = async () => {
-
-        // if(dataRef.current.email.trim() !== ''){
-        //     const re:RegExp = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-        //     const result = re.test(String(dataRef.current.email).toLowerCase());
-
-        //     if(!result){
-        //         dataRef.current.hasErrors = true;
-        //         dataRef.current.emailError = 'Please enter a valid email';
-        //     }else{
-        //         dataRef.current.emailError = '';
-        //     }
-
-        // }else{
-        //     dataRef.current.hasErrors = true;
-        //     dataRef.current.emailError = 'Please enter your Email';
-        // }
-
-        // validateFileds('name','Please enter your Name')
-        // validateFileds('msg','Please enter your Message')
-        
-        // if(dataRef.current.hasErrors){
-        //     console.log('Has Errors')
-        // }else{
-        //     console.log('Verified')
-        // }
-
-        // setButtonState('SENDING...')
+    const sendEmail = async ():Promise<void> => {
+        const data = {
+            name: dataRef.current.name,
+            email: dataRef.current.email,
+            msg: dataRef.current.msg
+        }
 
 
         const requestOptions = {
-            method: 'POST'
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json, text/plain, */*',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
         };
-        const t = await fetch('api/sendmail', requestOptions).then((v)=>{
-            return 'v.json()'
-        })
-        // console.log(t)
+
+        try {
+
+            const r = await fetch('api/sendmail', requestOptions).then((d)=>{
+                setButtonState('SUCCESS')
+                return d.json()
+            })
+            
+        } catch (error) {
+            setButtonState('ERROR')
+        }
+
+    }
 
 
-        // if(buttonState === 'SUCCESS'){
+    const onSend = async () => {
+        dataRef.current.hasErrors = false;
+        if(dataRef.current.email.trim() !== ''){
+            const re:RegExp = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            const result = re.test(String(dataRef.current.email).toLowerCase());
 
-        // }
+            if(!result){
+                dataRef.current.hasErrors = true;
+                dataRef.current.emailError = 'Please enter a valid email';
+            }else{
+                dataRef.current.emailError = '';
+            }
 
+        }else{
+            dataRef.current.hasErrors = true;
+            dataRef.current.emailError = 'Please enter your Email';
+        }
+
+        validateFileds('name','Please enter your Name')
+        validateFileds('msg','Please enter your Message')
+        
+        setValidate(prevState => !prevState)
+
+
+        if(!dataRef.current.hasErrors){
+            setButtonState('SENDING...')
+            sendEmail()
+        }
 
     }
 
@@ -111,20 +127,19 @@ export default function ContactMe(): ReactElement {
                     />
 
                     <MessageField data={dataRef.current} />
-                    <button className={styles.submit_btn} onClick={sendMail}>
+                    <button className={styles.submit_btn} onClick={onSend}>
                         {buttonState}
-                        <div className={styles.btn_hover}>SEND</div>
-                        <div className={styles.btn_success}>SENT</div>
+                        <div className={styles.btn_hover}>{buttonState}</div>
                     </button>
 
                     <input
                         type='checkbox'
                         id={styles.thankYouCardToggle}
-                        style={{ display: 'block',width:'100%' }}
+                        style={{ display: 'none'}}
                         checked={buttonState === 'SUCCESS'}
-                        onChange={(e) => {
-                            if(e.target.checked) return setButtonState('SUCCESS')
-                            setButtonState('ERROR')
+                        onChange={(_) => {
+                            // if(e.target.checked) return setButtonState('SUCCESS')
+                            // setButtonState('ERROR')
                         }}
                     />
                     
@@ -132,7 +147,7 @@ export default function ContactMe(): ReactElement {
 
                         <div className={styles.gradient_BG_wrapper} />
                         <div className={styles.content_wrapper}>
-                            Thank you for showing your intrest and messaging me. For your confermation I have sent an mail to you kindly check it.
+                            Thank you for showing your intrest and messaging me. For your confirmation I have sent an mail to you kindly check it.
                             Thank You
                         </div>
                     </div>

@@ -1,6 +1,4 @@
 import React, { useEffect, useRef, ReactElement, RefObject, MutableRefObject } from 'react'
-import Image from 'next/image'
-import flutterPng from '../../../public/assets/skills/Flutter_logo.png'
 import styles from './skillInfoPopUp.module.css'
 
 export let skillPopUpRefGlob: RefObject<HTMLDivElement>; 

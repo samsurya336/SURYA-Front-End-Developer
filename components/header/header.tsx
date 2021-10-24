@@ -26,7 +26,7 @@ export default function Header(): JSX.Element {
     <section>
 
         <div className={styles.header_top_comp_wrapper} ref={headerRef}>
-            <Image src={profileImage} />
+            <Image src={profileImage} alt={'SURYA-Front-End-Dev'} />
             <NameComp />
         </div>
 

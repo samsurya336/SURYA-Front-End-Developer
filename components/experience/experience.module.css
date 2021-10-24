@@ -29,13 +29,13 @@
   background: rgb(112, 112, 112);
   background: linear-gradient(
     90deg,
-    rgba(112, 112, 112, 0.9456396210059691) 0%,
+    rgba(83, 83, 83, 0.946) 0%,
     rgba(125, 125, 125, 1) 16%,
     rgba(207, 207, 207, 1) 50%,
     rgba(125, 125, 125, 1) 81%,
-    rgba(112, 112, 112, 0.9540665872981039) 100%
+    rgba(80, 80, 80, 0.954) 100%
   );
-  background-size: 200% 100%;
+  background-size: 150% 100%;
   animation: progress_anime 5s linear infinite forwards;
   margin: calc(var(--padding-s) / 2.5) 0;
   border-radius: 2px;

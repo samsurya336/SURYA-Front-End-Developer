@@ -37,35 +37,6 @@
   --bottom-gap: 1.5rem;
 }
 
-@font-face {
-  font-family: 'quickSand';
-  src: url('/public/fonts/Quicksand/Quicksand-VariableFont_wght.ttf')
-      format('truetype'),
-    url('/public/fonts/Quicksand/OFL.txt') format('otf');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'josefinSans';
-  src: url('/public/fonts/Josefin_Sans/JosefinSans-VariableFont_wght.ttf')
-      format('truetype'),
-    url('/public/fonts/Josefin_Sans/OFL.txt') format('otf');
-
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'jetBrains';
-  src: url('/public/fonts/JetBrains/JetBrainsMono-VariableFont_wght.ttf')
-      format('truetype'),
-    url('/public/fonts/JetBrains/OFL.txt') format('otf');
-
-  font-weight: normal;
-  font-style: normal;
-}
-
 html,
 body {
   height: 100%;
@@ -78,19 +49,16 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 
   scroll-behavior: smooth;
-  /* background-color: var(--black-700); */
+  background-color: var(--black-700);
 
   /* background-color: #181818; */
   /* background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%); */
   /* overflow-x: hidden;
   overflow: hidden; */
   /* font-family: 'jetBrains'; */
+  /* overflow-x: hidden; */
 }
 
-::-webkit-scrollbar {
-  width: 0; /* Remove scrollbar space */
-  background: transparent; /* Optional: just make scrollbar invisible */
-}
 
 a {
   color: inherit;
@@ -105,4 +73,32 @@ a {
   box-sizing: border-box;
   letter-spacing: 0.07rem;
   word-spacing: 0.2rem;
+}
+
+::-webkit-scrollbar {
+  width: 0; /* Remove scrollbar space */
+  background: transparent; /* Optional: just make scrollbar invisible */
+}
+
+/* ::-webkit-scrollbar {
+  -webkit-appearance: none;
+}
+
+::-webkit-scrollbar:vertical {
+  width: 0.25rem;
+}
+
+::-webkit-scrollbar-track {
+  display: block;
+  background-color: #e1d5bf;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #2e2614;
+} */
+
+
+
+::selection {
+  background-color: var(--green-500);
 }
