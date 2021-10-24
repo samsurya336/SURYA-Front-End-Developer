@@ -38,10 +38,10 @@ const Home: NextPage = () => {
         <meta name="description" content="SURYA | Front-End Developer"/>
         <link rel="icon" href="/profileThumb.jpeg" />
 
-        <meta property="og:title" content="ABC Blabla 2020 Friday" />
-        <meta property="og:url" content="https://bla123.neocities.org/mp/friday.html" />
-        <meta property="og:description" content="Photo Album" />
-        <meta property="og:image" content="https://bla123.neocities.org/mp/images/thumbs/IMG_327.JPG"/>
+        <meta property="og:title" content="SURYA | Front-End Developer" />
+        <meta property="og:url" content="https://surya-master-developer.vercel.app/" />
+        <meta property="og:description" content="Surya Portfolio" />
+        <meta property="og:image" content="https://surya-master-developer.vercel.app/profileThumb.jpeg"/>
         <meta property="og:type" content="website" />
       </Head>
 
