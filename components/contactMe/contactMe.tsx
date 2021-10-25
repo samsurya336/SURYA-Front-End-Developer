@@ -111,7 +111,7 @@ export default function ContactMe(): ReactElement {
     return(
         <section className={styles.contactMe_section_wrapper} ref={contactMeRef}>
             <div className={styles.contactMe_section}>
-                <p className={styles.contactMe_heading}>Preciso Concepts</p>
+                <p className={styles.contactMe_heading}>Contact Me</p>
                 <div className={styles.contactMe_fields_container}>
                     
                     <InputField 
