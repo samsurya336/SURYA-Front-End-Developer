@@ -41,7 +41,7 @@ const clientMailTemplate = (name:string):string => {
             <div class='card_wrapper'>
                 <div class='card'>
                     <h4>Hiii ${name},</h3>
-                    <p>This is Surya, hope your good and safe and thank you for showing intrest in messaging me i have received your email and i will contact you shortly</p>
+                    <p>This is Surya, hope you are good and safe and thank you for showing intrest in messaging me i have received your email and i will contact you shortly</p>
                     <p>Untill then, have a good day and cheers</p>
                 </div>
             </div>
