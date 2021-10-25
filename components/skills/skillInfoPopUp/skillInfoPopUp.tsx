@@ -5,12 +5,13 @@ export let skillPopUpRefGlob: RefObject<HTMLDivElement>;
 
 let currentSkillRef:RefObject<HTMLDivElement>;
 
+
 export const assignCurrentSkillRef = (ref:RefObject<HTMLDivElement>) => {
     currentSkillRef =  ref;
 }
 
 
-export const toggleSkillInfo = (isOpen:boolean,title:string='') => {
+export const toggleSkillInfo = (isOpen:boolean,title:string='',info:string) => {
 
     let val = (skillPopUpRefGlob.current as HTMLDivElement ).style.getPropertyValue('display');
         const cardStyle = (skillPopUpRefGlob.current?.children[1] as HTMLDivElement).style;
@@ -19,6 +20,8 @@ export const toggleSkillInfo = (isOpen:boolean,title:string='') => {
 
         
         if(isOpen){
+            //.textContent += " this has just been added";
+            (skillPopUpRefGlob.current?.children[1].children[2] as HTMLParagraphElement).textContent = info;
             (skillPopUpRefGlob.current as HTMLDivElement ).style.display = "block";
             // cardStyle.background = 'blue'
             const skillTileHeight = (currentSkillRef.current as HTMLDivElement).offsetHeight;
@@ -101,6 +104,7 @@ export const toggleSkillInfo = (isOpen:boolean,title:string='') => {
             }, 250);
 
         }
+
 }
 
 export default function SkillInfoPopUp(): ReactElement {
@@ -116,7 +120,7 @@ export default function SkillInfoPopUp(): ReactElement {
         // (skillPopUpRefGlob.current as HTMLDivElement ).style.display = "none";
         // cardStyle.transform = 'none';
 
-        toggleSkillInfo(false);
+        toggleSkillInfo(false,"","");
     }
 
     return (
@@ -124,14 +128,9 @@ export default function SkillInfoPopUp(): ReactElement {
             {/* <button onClick={closeMe}> CLOSE ME </button> */}
             <span />
             <div className={styles.skill_info_popUp_card}>
-                <h6>
-                    React JS
-                </h6>
+                <h6>React JS</h6>
                 <h4 onClick={closeMe}>X</h4>
-                    {/* <Image src={flutterPng} /> */}
-                    <p>
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.  is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
-                    </p>
+                <p></p>
             </div>
         </div>
     )

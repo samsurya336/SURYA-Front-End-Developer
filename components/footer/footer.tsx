@@ -39,7 +39,7 @@ export default function Footer(): ReactElement {
 
             <div className={styles.footer_social_media_section_wrapper}>
                 <a href="mailto: surya.master.dev@gmail.com">
-                    <GmailIcon /><span> surya.master.dev@gmail.com</span>
+                    <GmailIcon /><span> surya.master.dev@gmail.com </span>
                 </a>
                 <a href={'https://github.com/samsurya336'} target="_blank" rel="noopener noreferrer">
                     <GitHubIcon /><span> GitHub</span>

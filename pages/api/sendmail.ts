@@ -39,7 +39,7 @@ export default async function (req:NextApiRequest, res:NextApiResponse) {
 
 
     const toClientData = {
-      from: 'surya_dev@gamil.com',
+      from: 'surya.master.dev@gmail.com',
       to: req.body.email,
       subject: `Surya Dev confirmation email`,
       text: 'TEXT message',

@@ -18,6 +18,11 @@ import ContactMe from '../components/contactMe/contactMe'
 import Footer from '../components/footer/footer'
 
 
+import {
+  reactJsInfo, nextJsInfo, htmlInfo, cssInfo, flutterInfo, threeJs, postgresInfo, mongoDBInfo, nodeJsInfo, expressJSInfo, FirebaseInfo, supaBaseInfo, javaScriptInfo, typeScriptInfo, javaInfo, dartInfo, vsCodeInfo, figmaInfo, gitInfo
+} from '../consts/skillsData'
+
+
 
 //design Two
 // 🧑🏻‍💻
@@ -65,43 +70,43 @@ const Home: NextPage = () => {
 
             <section id='section_2'>
               <Skills title={'Front End Skills'} section={'section_2'}>
-                  <SkillTile title={'React Js'} />
-                  <SkillTile title={'Next Js'} tag={'BUILT WITH'} runningText={'Yes this project is built with NEXT JS'}/>
-                  <SkillTile title={'HTML'} />
-                  <SkillTile title={'CSS'} />
-                  <SkillTile title={'Flutter'} />
-                  <SkillTile title={'Three Js'} tag={'BETA'} />
+                  <SkillTile title={'React Js'} info={reactJsInfo} />
+                  <SkillTile title={'Next Js'} info={nextJsInfo} tag={'BUILT WITH'} runningText={'Yes this project is built with NEXT JS'}/>
+                  <SkillTile title={'HTML'} info={htmlInfo} />
+                  <SkillTile title={'CSS'} info={cssInfo} />
+                  <SkillTile title={'Flutter'} info={flutterInfo} />
+                  <SkillTile title={'Three Js'} info={threeJs} tag={'BETA'} />
               </Skills>
             </section>
 
 
             <section id='section_3'>
               <Skills title={'Backend End Skills'} section={'section_3'}>
-                  <SkillTile title={'Postgres SQL'} />
-                  <SkillTile title={'Mongo DB'} />
-                  <SkillTile title={'Node JS'} />
-                  <SkillTile title={'Express'} />
-                  <SkillTile title={'Firebase'} />
-                  <SkillTile title={'Supabase'} />
+                  <SkillTile title={'Postgres SQL'} info={postgresInfo} />
+                  <SkillTile title={'Mongo DB'} info={mongoDBInfo} />
+                  <SkillTile title={'Node JS'} info={nodeJsInfo} />
+                  <SkillTile title={'Express'} info={expressJSInfo} />
+                  <SkillTile title={'Firebase'} info={FirebaseInfo} />
+                  <SkillTile title={'Supabase'} info={supaBaseInfo} />
               </Skills>
             </section>
 
 
             <section id='section_4'>
               <Skills title={'Programing Languages'} section={'section_4'}>
-                  <SkillTile title={'Java Script'} />
-                  <SkillTile title={'Type Script'} tag={'BUILT WITH'} runningText={'Yes this project is built with Type Script'}/>
-                  <SkillTile title={'Dart'} />
-                  <SkillTile title={'Java'} />
+                  <SkillTile title={'Java Script'} info={javaScriptInfo} />
+                  <SkillTile title={'Type Script'} info={typeScriptInfo} tag={'BUILT WITH'} runningText={'Yes this project is built with Type Script'}/>
+                  <SkillTile title={'Dart'} info={dartInfo} />
+                  <SkillTile title={'Java'} info={javaInfo} />
               </Skills>
             </section>
 
 
             <section id='section_5'>
               <Skills title={'Tools I Use'} section={'section_5'}>
-                  <SkillTile title={'VS Code'} />
-                  <SkillTile title={'Figma'} />
-                  <SkillTile title={'Adobe XD'} />
+                  <SkillTile title={'VS Code'} info={vsCodeInfo} />
+                  <SkillTile title={'Git'} info={gitInfo} />
+                  <SkillTile title={'Figma'} info={figmaInfo} />
               </Skills> 
             </section>
 

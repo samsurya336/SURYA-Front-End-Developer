@@ -10,6 +10,7 @@ interface Props {
     title: string,
     runningText?: string,
     tag?:string,
+    info: string,
 }
 
 export default function SkillTile(props: Props): ReactElement {
@@ -20,7 +21,7 @@ export default function SkillTile(props: Props): ReactElement {
 
     function toggleCard(){
         assignCurrentSkillRef(skillsTileRef);
-        toggleSkillInfo(true,props.title);
+        toggleSkillInfo(true,props.title,props.info);
         // openCardRef.current = !openCardRef.current;
         // let val = (skillPopUpRefGlob.current as HTMLDivElement ).style.getPropertyValue('display');
         // const cardStyle = (skillPopUpRefGlob.current?.children[1] as HTMLDivElement).style;
