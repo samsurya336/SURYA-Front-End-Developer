@@ -1,0 +1,5 @@
+[{
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target" : { "namespace": "android_app", "package_name": "com.ninto.doctors",
+                 "sha256_cert_fingerprints": ["SHA256: D4:BA:88:57:BE:BC:39:E9:4A:80:98:4A:84:01:E9:E9:A6:2D:71:0E:A9:03:BC:B1:E0:39:AE:9C:56:30:33:D8"] }
+  }]
